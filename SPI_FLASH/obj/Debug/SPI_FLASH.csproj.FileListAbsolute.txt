@@ -1,0 +1,16 @@
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\bin\Debug\SPI_FLASH.exe.config
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\bin\Debug\SPI_FLASH.exe
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\bin\Debug\SPI_FLASH.pdb
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\bin\Debug\FTD2XX_NET.dll
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\bin\Debug\FTD2XX_NET.xml
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\obj\Debug\SPI_FLASH.csprojResolveAssemblyReference.cache
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\obj\Debug\SPI_FLASH.MainForm.resources
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\obj\Debug\SPI_FLASH.Properties.Resources.resources
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\obj\Debug\SPI_FLASH.csproj.GenerateResource.Cache
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\obj\Debug\SPI_FLASH.exe
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\obj\Debug\SPI_FLASH.pdb
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\bin\Debug\M4nuskomponents.dll
+D:\Prog\Visual Studio 2015\Solutions\FTDI USB Controller\SPI_FLASH\bin\Debug\M4nuskomponents.pdb
+D:\Prog\Visual Studio 2015\Solutions\LegoTV\SPI_FLASH\bin\Debug\SPI_FLASH.exe.config
+D:\Prog\Visual Studio 2015\Solutions\LegoTV\SPI_FLASH\obj\Debug\SPI_FLASH.exe
+D:\Prog\Visual Studio 2015\Solutions\LegoTV\SPI_FLASH\obj\Debug\SPI_FLASH.pdb
