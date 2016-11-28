@@ -29,7 +29,7 @@ Software interface to use the FTDI UM245R as a software SPI interface to transfe
 * Use the FTDI UM245R USB interface as a software emulated SPI host
 * Load TFT Data Manager raw data and flash expanded data in windbond chip with proper sector alignment
 
-# The Project !
+# The Project
 
 ## Physical Components
 The "block" used is custom machined on a taig mill using only DRO for reference and a custom cutter for the studs.
@@ -41,17 +41,21 @@ Backplate is the actual SMT PCB
 ## Electrical Components
 * Uses CMOS 3.3V chips for MCU + EEPROM + Display
 * Home-made PCB with laser printer transfer sheets
-* Diode used to prevent accidental introduction of batteries in reverse oder (project is intended to be used by childen) so 4 * 1.5V batteries are used in the pack
+* Diode used to prevent accidental introduction of batteries in reverse oder (project is intended to be used by childen) so 4x1.5V batteries are used in the pack
 * Integrated 3.3V LDO regulator
-* PIC 16F88 with internal 8MHz osc.  Also works with external 20MHz osc by adjusting the internal timing and adding external components but it proved to be add un-necessary complexity on the PCB
+* PIC16F88 with internal 8MHz osc.  Also works with external 20MHz osc by adjusting the internal timing and adding external components but it proved to be add un-necessary complexity on the PCB
 * 128Mbit/16Mbyte flash contains either 511 images in RGB444 (actually capped to 255 due to 1 byte num_image variable) or 255 RGB666 (actually RGB888 because lazyness) images
 
-# Pictures and videos
-##Photos
-* TODO !
+# Media
+## Pictures
+* //TODO
 
-##Video
-* Test 1 [firmware on breadboard] (https://youtu.be/bwzhosgC7QQ)
-* Test 2 [PCB] (https://youtu.be/HSaehFAtPZ8)
-* Test 3 [PCB inside with screen inside the block] (https://youtu.be/ZGKneOr_af8)
-* Test 4 [final block with buttons] Inwork!
+## Schenatics
+* [Block]  //TODO
+* [PCB]  //TODO
+
+## Videos
+* [Firmware test with circuit on breadboard] (https://youtu.be/bwzhosgC7QQ)
+* [post-soldering PCB test] (https://youtu.be/HSaehFAtPZ8)
+* [PCB with screen inside the block] (https://youtu.be/ZGKneOr_af8)
+* [final block with buttons] //TODO InWork!
