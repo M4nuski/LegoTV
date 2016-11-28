@@ -52,11 +52,11 @@ Backplate is the actual SMT PCB
 * Configured to read and write to 2 EEPROM (flash) memory chip)
 * Can load TFT Data Manager raw data and flash windbond chip with proper sector alignment
 
-# Pictures and videos
-Photos
+## Pictures and videos
+#Photos
 * TODO !
 
-Video
+#Video
 * Test 1 [firmware on breadboard] (https://youtu.be/bwzhosgC7QQ)
 * Test 2 [PCB] (https://youtu.be/HSaehFAtPZ8)
 * Test 3 [PCB inside with screen inside the block] (https://youtu.be/ZGKneOr_af8)
