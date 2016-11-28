@@ -25,12 +25,12 @@ Support Windbond W25Q128FV 128mbit SPI flash devices and basic support of SST25V
 
 ## Hardware
 
-# Physical
+### Physical
 The "block" used is custom machined on a taig mill using only DRO for reference and a custom cutter for the studs.
 Top and Bottom paltes where actually test parts that got fused togheter with a casting of 2-parts polyurethane plastic then hollowed-out by the same milling machine.
 Backplate is the actual SMT PCB
 
-# Electrical
+### Electrical
 * Uses CMOS 3.3V chips for MCU + EEPROM + Display
 * Home-made PCB with laser printer transfer sheets
 * Diode used to prevent accidental introduction of batteries in reverse oder (project is intended to be used by childen) so 4 * 1.5V batteries are used in the pack
@@ -40,23 +40,23 @@ Backplate is the actual SMT PCB
 
 ## Software
 
-# TFT Data Manager
+### TFT Data Manager
 * C# 
 * Support Load library, Add library (to current library), Save Library and Export data.
 * Basic list of image to load, crop/resize and change position in list
 * Export to tightly packed raw data
 
-# SPI Flash
+### SPI Flash
 * C#
 * Use the FTDI UM245R USB interface as an software emulated SPI host
 * Configured to read and write to 2 EEPROM (flash) memory chip)
 * Can load TFT Data Manager raw data and flash windbond chip with proper sector alignment
 
 ## Pictures and videos
-#Photos
+###Photos
 * TODO !
 
-#Video
+###Video
 * Test 1 [firmware on breadboard] (https://youtu.be/bwzhosgC7QQ)
 * Test 2 [PCB] (https://youtu.be/HSaehFAtPZ8)
 * Test 3 [PCB inside with screen inside the block] (https://youtu.be/ZGKneOr_af8)
