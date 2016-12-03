@@ -56,6 +56,6 @@ Backplate is the actual SMT PCB
 
 ## Videos
 * [Firmware test with circuit on breadboard] (https://youtu.be/bwzhosgC7QQ)
-* [post-soldering PCB test] (https://youtu.be/HSaehFAtPZ8)
+* [Post-soldering PCB test] (https://youtu.be/HSaehFAtPZ8)
 * [PCB with screen inside the block] (https://youtu.be/ZGKneOr_af8)
-* [final block with buttons] //TODO InWork!
+* [Final block with buttons] (https://youtu.be/T-MZ-Wergmg)
