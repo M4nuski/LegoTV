@@ -107,7 +107,7 @@ namespace TFT_Data_Manager
 
                     foreach (var VARIABLE in enumBuffer)
                     {
-                        imageDataList.Add(VARIABLE.Key, addSourceBitmap(buffer[VARIABLE.Key]));
+                        imageDataList.Add(VARIABLE.Key, addSourceBitmap(Path.GetDirectoryName(openLIBFileDialog1.FileName) + "\\", VARIABLE.Value));
                         addElementToList(VARIABLE.Key, imageDataList[VARIABLE.Key]);
                     }
                 }
@@ -126,7 +126,7 @@ namespace TFT_Data_Manager
                 
                 for (var i = 0; i < listView1.Items.Count; i++)
                 {
-                    imageDataList[listView1.Items[i].ImageKey] = addIndex(Path.GetDirectoryName(saveLIBFileDialog1.FileName),  imageDataList[listView1.Items[i].ImageKey], listView1.Items[i].Index);
+                    imageDataList[listView1.Items[i].ImageKey] = addIndex(Path.GetDirectoryName(saveLIBFileDialog1.FileName) + "\\",  imageDataList[listView1.Items[i].ImageKey], listView1.Items[i].Index);
                 }
 
                 var data = JsonConvert.SerializeObject(imageDataList, Formatting.Indented);
@@ -155,13 +155,19 @@ namespace TFT_Data_Manager
             // http://stackoverflow.com/questions/9042861/how-to-make-an-absolute-path-relative-to-a-particular-folder
             var fullPath = new Uri(targetPath, UriKind.Absolute);
             var relRoot = new Uri(basePath, UriKind.Absolute);
-            return relRoot.MakeRelativeUri(fullPath).ToString();
+
+            return Uri.UnescapeDataString((relRoot.MakeRelativeUri(fullPath)).ToString());
         }
 
-        private static imageData addSourceBitmap(imageData img)
+        private static imageData addSourceBitmap(string basePath, imageData img)
         {
             try
             {
+                if (!File.Exists(img.SourcePath))
+                {
+                    img.SourcePath = basePath + img.SourcePath;
+                }
+
                 var bmpBuffer = new Bitmap(img.SourcePath);
                 return new imageData()
                 {
@@ -469,7 +475,7 @@ namespace TFT_Data_Manager
 
                     foreach (var VARIABLE in enumBuffer)
                     {
-                        imageDataList.Add(VARIABLE.Key, addSourceBitmap(buffer[VARIABLE.Key]));
+                        imageDataList.Add(VARIABLE.Key, addSourceBitmap(Path.GetDirectoryName(openLIBFileDialog1.FileName) + "\\", VARIABLE.Value));
                         addElementToList(VARIABLE.Key, imageDataList[VARIABLE.Key]);
                     }
                 }
