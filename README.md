@@ -49,11 +49,17 @@ Backplate is the actual SMT PCB
 
 # Media
 ## Pictures
-* //TODO
+* [Stud Cutter]
+* [Top and Bottom interface] 
+* [Block casting and facing]
+* [Hollowing block]
+* [Painting and finishing]
+* [Fitting and final assembly]
 
 ## Schematics
-* [Block]  //TODO
-* [PCB]  //TODO
+* [Block Schematics] (http://m4nusky.com/projects/legotv/legotv_layout.jpg)
+* [PCBs of controller and TFT backplate] (http://m4nusky.com/projects/legotv/legotv_pcbs.jpg)
+* Schematics and PCBs are available as PDF in the repository's /schematics/ folder
 
 ## Videos
 * [Firmware test with circuit on breadboard] (https://youtu.be/bwzhosgC7QQ)
