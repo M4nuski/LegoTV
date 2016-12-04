@@ -5,7 +5,7 @@ Software to update and run a small electronic-"picture frame"-esque "constructio
 - Uses a 1.8in TFT LCD screen (JT-D1800 ?) with ST7735 controller
 - Data is stored on a Windbond W25Q128FV SPI flash chip
 - Loads TFT configuration + number of image + number of bytes per image from flash data
-- Data is spread accross the flash memory by sectors according to the bytes-per-image length
+- Data is spread according to the flash memory sectors optimized to the bytes-per-image length
 - Automatically switch to next image after about 5 seconds
 - Supports Next and Previous switches
 
@@ -26,7 +26,7 @@ A simple image library style editor to load and adjust image file to fit the TFT
 Software interface to use the FTDI UM245R as a software SPI interface to transfer the data file into the SPI flash chip.
 
 * Support Windbond W25Q128FV 128mbit SPI flash devices and basic support of SST25VF016B
-* Spread the data accross sector boundary to simplify flash chip ereases and PIC loading
+* Write the data according sector boundary to simplify flash chip ereases and PIC loading (i.e. 32K or 64k)
 * Use the FTDI UM245R USB interface as a software emulated SPI host
 * Load TFT Data Manager raw data and flash expanded data in windbond chip with proper sector alignment
 
@@ -35,7 +35,7 @@ Software interface to use the FTDI UM245R as a software SPI interface to transfe
 ## Physical Components
 The "block" used is custom machined on a taig mill using only DRO for reference and a custom cutter for the studs.
 
-Top and Bottom paltes where actually test parts that got fused togheter with a casting of polyurethane plastic then hollowed-out by the same milling machine.
+Top and Bottom paltes were actually test parts that got fused togheter with a casting of polyurethane plastic then hollowed-out by the same milling machine.
 
 Backplate is the actual SMT PCB
 
