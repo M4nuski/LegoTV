@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
@@ -102,7 +103,9 @@ namespace TFT_Data_Manager
                     listView1.Items.Clear();
                     imageDataList.Clear();
 
-                    foreach (var VARIABLE in buffer)
+                    var enumBuffer = buffer.OrderBy(x => x.Value.index);
+
+                    foreach (var VARIABLE in enumBuffer)
                     {
                         imageDataList.Add(VARIABLE.Key, addSourceBitmap(buffer[VARIABLE.Key]));
                         addElementToList(VARIABLE.Key, imageDataList[VARIABLE.Key]);
@@ -120,11 +123,12 @@ namespace TFT_Data_Manager
             if (saveLIBFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 //save library file
-
+                
                 for (var i = 0; i < listView1.Items.Count; i++)
                 {
-                    imageDataList[listView1.Items[i].ImageKey] = addIndex(imageDataList[listView1.Items[i].ImageKey], listView1.Items[i].Index);
+                    imageDataList[listView1.Items[i].ImageKey] = addIndex(Path.GetDirectoryName(saveLIBFileDialog1.FileName),  imageDataList[listView1.Items[i].ImageKey], listView1.Items[i].Index);
                 }
+
                 var data = JsonConvert.SerializeObject(imageDataList, Formatting.Indented);
                 Debug.WriteLine(data);
 
@@ -132,18 +136,26 @@ namespace TFT_Data_Manager
             }
         }
 
-        private static imageData addIndex(imageData img, int newIndex)
+        private static imageData addIndex(string basePath, imageData img, int newIndex)
         {
             return new imageData()
             {
                 SourceBitmap = img.SourceBitmap,
-                SourcePath = img.SourcePath,
+                SourcePath = makePathRelative(basePath, img.SourcePath),
                 top = img.top,
                 left = img.left,
                 width = img.width,
                 height = img.height,
                 index = newIndex
             };
+        }
+
+        private static string makePathRelative(string basePath , string targetPath )
+        {
+            // http://stackoverflow.com/questions/9042861/how-to-make-an-absolute-path-relative-to-a-particular-folder
+            var fullPath = new Uri(targetPath, UriKind.Absolute);
+            var relRoot = new Uri(basePath, UriKind.Absolute);
+            return relRoot.MakeRelativeUri(fullPath).ToString();
         }
 
         private static imageData addSourceBitmap(imageData img)
@@ -451,8 +463,11 @@ namespace TFT_Data_Manager
                    // thumbnailList.Images.Clear();
                    // listView1.Items.Clear();
                    // imageDataList.Clear();
+                    var enumBuffer = buffer.OrderBy(x => x.Value.index);
 
-                    foreach (var VARIABLE in buffer)
+
+
+                    foreach (var VARIABLE in enumBuffer)
                     {
                         imageDataList.Add(VARIABLE.Key, addSourceBitmap(buffer[VARIABLE.Key]));
                         addElementToList(VARIABLE.Key, imageDataList[VARIABLE.Key]);

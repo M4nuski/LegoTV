@@ -56,26 +56,26 @@ _W25_ID1	EQU 0x18
 
 ;GPR
 	cblock 0x020
-		init_status
+		init_status		; status flags during init
 		d1, d2, d3		; loops counters
 
-		SPI_Buffer	; Output buffer for SPI 0 or 1
+		SPI_Buffer	; Output buffer for SPI
 		ClearColor:3; r g b
 
-		SPI1_Bytes_to_Read:2
+		SPI1_Bytes_to_Read:2 ; bits 23-16 + 15-8 , bits 7-0 are always == 0x00
 
 		; config struct from flash
 		ColMod  ; 444:03h 666:06h 
 		MadCtl
 		NumImages
-		BytesPerImage:2 ; 444:7800h  666: F000h F000 444 A000
+		BytesPerImage:2 ; 444:7800h  666: F000h
 
 		; state
 		CurrentImage
-		CurrentAddress:2 ; actually 3 bytes but byte 0 is always 0 
+		CurrentAddress:2 ; bits 23-16 + 15-8 , bits 7-0 are always == 0x00
 		BytesPerSector:2 ; 64k :   0x 01 00 00  32K 0x00 80 00
-		SSR
-		ID:3
+		SSR				; status register
+		ID:3			; MFR + ID
 	endc
 
 	
@@ -95,20 +95,20 @@ _W25_ID1	EQU 0x18
 	CLRF ANSEL			; all digital IO
 
 	; SPI
-	BCF _SPI0_CS
-	BCF _SPI0_CLK
-	BCF _SPI0_DTA
-	BCF _SPI0_RST
-	BCF _SPI0_A0	
+	BCF _SPI0_CS	; output
+	BCF _SPI0_CLK	; output
+	BCF _SPI0_DTA	; output
+	BCF _SPI0_RST	; output
+	BCF _SPI0_A0	; output
 
-	BCF _SPI1_CLK
-	BCF _SPI1_DTAO
-	BSF _SPI1_DTAI
-	BCF _SPI1_CS
+	BCF _SPI1_CLK	; output
+	BCF _SPI1_DTAO	; output
+	BSF _SPI1_DTAI	; input
+	BCF _SPI1_CS	; output
 
 	; HID
-	BSF _SW_Prev
-	BSF _SW_Next
+	BSF _SW_Prev	; input
+	BSF _SW_Next	; input
 
 	BANK0		
 	; default state SPI mode 3
@@ -363,7 +363,7 @@ tloop
 	CALL INC_IMG
 	GOTO tloop
 	
-e	GOTO e ;end of program stall
+e	GOTO e ;end of program stall safety
 	
 
 
@@ -386,7 +386,7 @@ inc_img_rst
 	
 dec_img
 	DECF CurrentImage, W
-	BTFSC STATUS, Z ;if currentimage is already 1, DECF put 0 in W, C is Set
+	BTFSC STATUS, Z ;if currentimage is already 1, DECF put 0 in W, Z is Set
 	return	;return immediatly
 	;otherwise
 	DECF CurrentImage, F; actually decrease CurrentImage

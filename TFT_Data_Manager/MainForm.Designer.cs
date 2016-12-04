@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.OpenDataMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addFromLibToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FlashMemoryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -67,7 +68,6 @@
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.addFromLibToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leftTrackBar)).BeginInit();
@@ -95,6 +95,13 @@
             this.OpenDataMenuItem.Size = new System.Drawing.Size(67, 20);
             this.OpenDataMenuItem.Text = "Open LIb";
             this.OpenDataMenuItem.Click += new System.EventHandler(this.OpenDataMenuItem_Click);
+            // 
+            // addFromLibToolStripMenuItem
+            // 
+            this.addFromLibToolStripMenuItem.Name = "addFromLibToolStripMenuItem";
+            this.addFromLibToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.addFromLibToolStripMenuItem.Text = "Add From Lib";
+            this.addFromLibToolStripMenuItem.Click += new System.EventHandler(this.addFromLibToolStripMenuItem_Click);
             // 
             // SaveAsMenuItem
             // 
@@ -446,13 +453,6 @@
             this.label4.Size = new System.Drawing.Size(158, 13);
             this.label4.TabIndex = 31;
             this.label4.Text = "RGB type / Max Image Quantity";
-            // 
-            // addFromLibToolStripMenuItem
-            // 
-            this.addFromLibToolStripMenuItem.Name = "addFromLibToolStripMenuItem";
-            this.addFromLibToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
-            this.addFromLibToolStripMenuItem.Text = "Add From Lib";
-            this.addFromLibToolStripMenuItem.Click += new System.EventHandler(this.addFromLibToolStripMenuItem_Click);
             // 
             // label5
             // 
