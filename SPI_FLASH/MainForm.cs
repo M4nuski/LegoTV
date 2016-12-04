@@ -68,7 +68,7 @@ namespace SPI_FLASH
         public MainForm()
         {
             InitializeComponent();
-            ExtLog.bx = textBox1;
+            ExtLog.bx = log_textbox;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace SPI_FLASH
                 {
                     usb.SetLatency(2);
                     usb.BitBang(SignalGenerator.genByte(true, true, true, true, true));
-                    label3.Text = "Unkown Device";
+                    label_JEDEC_ID.Text = "Unkown Device";
                 }
             }
             else
@@ -113,7 +113,7 @@ namespace SPI_FLASH
         {
             var sb = new StringBuilder();
 
-            if (textBox5.Text == JEDEC_ID_SST25VF016B)
+            if (JEDEC_ID_textbox.Text == JEDEC_ID_SST25VF016B)
             {
                 sb.Append(" BUSY:" + boolTo01(SignalGenerator.GetBit(val, SRR1_bit_Busy)));
                 sb.Append(" WEL:" + boolTo01(SignalGenerator.GetBit(val, SRR1_bit_WriteEnabled)));
@@ -127,7 +127,7 @@ namespace SPI_FLASH
             }
             else
 
-            if (textBox5.Text == JEDEC_ID_W25Q128FV_SPI)
+            if (JEDEC_ID_textbox.Text == JEDEC_ID_W25Q128FV_SPI)
             {
                 sb.Append(" BUSY:" + boolTo01(SignalGenerator.GetBit(val, SRR1_bit_Busy)));
                 sb.Append(" WEL:" + boolTo01(SignalGenerator.GetBit(val, SRR1_bit_WriteEnabled)));
@@ -139,7 +139,7 @@ namespace SPI_FLASH
                 sb.Append(" SEC:" + boolTo01(SignalGenerator.GetBit(val, SRR1_bit_SEC)));
                 sb.Append(" SPR0:" + boolTo01(SignalGenerator.GetBit(val, SRR1_bit_SRP0)));
             }
-            else if (textBox5.Text == JEDEC_ID_W25Q128FV_QPI)
+            else if (JEDEC_ID_textbox.Text == JEDEC_ID_W25Q128FV_QPI)
             {
                 sb.Append("W25Q128FV QPI Mode Not Implemented.");
             }
@@ -161,12 +161,12 @@ namespace SPI_FLASH
             setCommand(SPI_read_JEDEC, 0, 3);
             usb.Transfer();
             ExtLog.AddLine("MFRID:" + tobin(SignalGenerator.InputBytes[1]) + " ID:" + tobin(SignalGenerator.InputBytes[2]) + " " + tobin(SignalGenerator.InputBytes[3]));
-            textBox5.Text = SignalGenerator.InputBytes[1].ToString("X2") + SignalGenerator.InputBytes[2].ToString("X2") +
+            JEDEC_ID_textbox.Text = SignalGenerator.InputBytes[1].ToString("X2") + SignalGenerator.InputBytes[2].ToString("X2") +
                             SignalGenerator.InputBytes[3].ToString("X2");
 
-            if (textBox5.Text == JEDEC_ID_SST25VF016B) label3.Text = "SST25VF016B";
-            if (textBox5.Text == JEDEC_ID_W25Q128FV_SPI) label3.Text = "W25Q128FV";
-            if (textBox5.Text == JEDEC_ID_W25Q128FV_QPI) label3.Text = "W25Q128FV (QPI)";
+            if (JEDEC_ID_textbox.Text == JEDEC_ID_SST25VF016B) label_JEDEC_ID.Text = "SST25VF016B";
+            if (JEDEC_ID_textbox.Text == JEDEC_ID_W25Q128FV_SPI) label_JEDEC_ID.Text = "W25Q128FV";
+            if (JEDEC_ID_textbox.Text == JEDEC_ID_W25Q128FV_QPI) label_JEDEC_ID.Text = "W25Q128FV (QPI)";
         }
 
         private static void setCommand(byte command, byte A23A16, byte A15A08, byte A07A00, int numDummy, int numResult)
@@ -217,7 +217,7 @@ namespace SPI_FLASH
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (label3.Text == "W25Q128FV")
+            if (label_JEDEC_ID.Text == "W25Q128FV")
             {
                 setCommand(SPI_read_SSR, 0, 1);
                 usb.Transfer();
@@ -261,7 +261,7 @@ namespace SPI_FLASH
 
         private void button8_Click(object sender, EventArgs e)
         {
-            var addr = getAddress(textBox2.Text);
+            var addr = getAddress(Address_textbox.Text);
 
             setCommand(SPI_4K_sector_erease, addr.Item3, addr.Item2, addr.Item1, 0, 0);
             usb.Transfer();
@@ -270,7 +270,7 @@ namespace SPI_FLASH
 
         private void button9_Click(object sender, EventArgs e)
         {
-            var addr = getAddress(textBox2.Text);
+            var addr = getAddress(Address_textbox.Text);
 
             setCommand(SPI_32K_block_erease, addr.Item3, addr.Item2, addr.Item1, 0, 0);
             usb.Transfer();
@@ -279,7 +279,7 @@ namespace SPI_FLASH
 
         private void button11_Click(object sender, EventArgs e)
         {
-            var addr = getAddress(textBox2.Text);
+            var addr = getAddress(Address_textbox.Text);
 
 
             setCommand(SPI_64K_block_erease, addr.Item3, addr.Item2, addr.Item1, 0, 0);
@@ -296,8 +296,8 @@ namespace SPI_FLASH
 
         private void button12_Click(object sender, EventArgs e)
         {
-            var addr = getAddress(textBox2.Text);
-            var numBytes = int.Parse(textBox3.Text);
+            var addr = getAddress(Address_textbox.Text);
+            var numBytes = int.Parse(numBytes_textbox.Text);
             // if (numBytes > 255) numBytes = 255;
             setCommand(SPI_read, addr.Item3, addr.Item2, addr.Item1, 0, numBytes);
             ExtLog.AddLine("Reading byte(s)...");
@@ -312,9 +312,9 @@ namespace SPI_FLASH
 
         private void button13_Click(object sender, EventArgs e)
         {
-            var addr = getAddress(textBox2.Text);
+            var addr = getAddress(Address_textbox.Text);
 
-            var dta = textBox4.Text.Split(',');
+            var dta = HEX_bytesData_toWrite_textbox.Text.Split(',');
             var bdta = new byte[dta.Length];
             for (var i = 0; i < dta.Length; i++)
             {
@@ -377,7 +377,7 @@ namespace SPI_FLASH
                 try
                 {
                     if (!usb.IsOpen) throw new Exception("USB Interface not open");
-                    if (textBox5.Text != JEDEC_ID_W25Q128FV_SPI) throw new Exception("Flash type not supported");
+                    if (JEDEC_ID_textbox.Text != JEDEC_ID_W25Q128FV_SPI) throw new Exception("Flash type not supported");
                     writeHeader(dump);
                     writeData(dump);
                 }
@@ -393,7 +393,7 @@ namespace SPI_FLASH
             //writeEnable
             button5_Click(null, null);
             //erease64Block
-            textBox2.Text = "0";
+            Address_textbox.Text = "0";
 
             if (dump.COLMOD == 0x03)
             {
@@ -427,8 +427,8 @@ namespace SPI_FLASH
                 //erease64Block
                 setCommand(SPI_write_enable, 0, 0);
                 usb.Transfer();
-                textBox2.Text = ((1 + i) * 65536).ToString("D");
-                textBox2.Refresh();
+                Address_textbox.Text = ((1 + i) * 65536).ToString("D");
+                Address_textbox.Refresh();
                 if (dump.COLMOD == 0x03)
                 {
                     button9_Click(null, null);//32k
@@ -457,8 +457,8 @@ namespace SPI_FLASH
                     {
                         SignalGenerator.OutputBytes[4 + j] = dump.data[i][offset + j];
                     }
-                    label4.Text = "Writing " + (100 * offset / dump.data[i].Length) + "% of image " + i;
-                    label4.Refresh();
+                    label_FlashStatusLine1.Text = "Writing " + (100 * offset / dump.data[i].Length) + "% of image " + i;
+                    label_FlashStatusLine1.Refresh();
                     usb.Transfer();
 
                     waitFlashNotBusy(5, 20);
@@ -466,7 +466,7 @@ namespace SPI_FLASH
                     offset += sentData;
                 }
             }
-            label4.Text = "Done loading " + dump.data.Length + " images";
+            label_FlashStatusLine1.Text = "Done loading " + dump.data.Length + " images";
         }
 
         private void waitFlashNotBusy(int sleep, int num_tries)
@@ -474,20 +474,20 @@ namespace SPI_FLASH
             for (var i = 0; i < num_tries; i++)
             {
                 Thread.Sleep(sleep);
-                label5.Text = "Checking Status...";
-                label5.Refresh();
+                label_FlashStatusLine2.Text = "Checking Status...";
+                label_FlashStatusLine2.Refresh();
                 setCommand(SPI_read_SSR, 0, 1);
                 usb.Transfer();
                 if (!SignalGenerator.GetBit(SignalGenerator.InputBytes[1], SRR1_bit_Busy))
                 {
-                    label5.Text = "";
-                    label5.Refresh();
-                    label6.Text = "";
-                    label6.Refresh();
+                    label_FlashStatusLine2.Text = "";
+                    label_FlashStatusLine2.Refresh();
+                    label_FlashStatusLine3.Text = "";
+                    label_FlashStatusLine3.Refresh();
                     return;
                 }
-                label6.Text = $"Busy ({sleep * i} ms elapsed)";
-                label6.Refresh();
+                label_FlashStatusLine3.Text = $"Busy ({sleep * i} ms elapsed)";
+                label_FlashStatusLine3.Refresh();
             }
             throw new Exception($"Still Busy after timeout of {sleep*num_tries} ms");
         }
