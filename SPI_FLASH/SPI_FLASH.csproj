@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{048B9B4F-5122-4CC9-9D46-9F6F06C49002}</ProjectGuid>
+    <ProjectGuid>{686D9C4D-B955-4957-AA97-FA6C754A2C44}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SPI_FLASH</RootNamespace>
