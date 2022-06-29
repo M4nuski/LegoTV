@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPI_FLASH", "SPI_FLASH\SPI_FLASH.csproj", "{048B9B4F-5122-4CC9-9D46-9F6F06C49002}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPI_FLASH", "SPI_FLASH\SPI_FLASH.csproj", "{686D9C4D-B955-4957-AA97-FA6C754A2C44}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFT_Data_Manager", "TFT_Data_Manager\TFT_Data_Manager.csproj", "{8BC96D2D-A74F-47A1-9A2F-85541A9C59A3}"
 EndProject
@@ -13,10 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{048B9B4F-5122-4CC9-9D46-9F6F06C49002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{048B9B4F-5122-4CC9-9D46-9F6F06C49002}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{048B9B4F-5122-4CC9-9D46-9F6F06C49002}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{048B9B4F-5122-4CC9-9D46-9F6F06C49002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{686D9C4D-B955-4957-AA97-FA6C754A2C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{686D9C4D-B955-4957-AA97-FA6C754A2C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{686D9C4D-B955-4957-AA97-FA6C754A2C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{686D9C4D-B955-4957-AA97-FA6C754A2C44}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8BC96D2D-A74F-47A1-9A2F-85541A9C59A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8BC96D2D-A74F-47A1-9A2F-85541A9C59A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BC96D2D-A74F-47A1-9A2F-85541A9C59A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CCE3854-E425-4F5F-9BCC-B6ABBA7B4DDE}
 	EndGlobalSection
 EndGlobal
