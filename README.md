@@ -1,7 +1,8 @@
 # LegoTV
-Software to update and run a small electronic-"picture frame"-esque "construction block" compatible TV
+![Lego TV!](media/LegoTV.jpg)
+Software to update and run a small electronic-"picture frame"-esque Lego "construction block" compatible TV
 
-## Project's basic features:
+## Project's basic features
 - Uses a 1.8in TFT LCD screen (JT-D1800 ?) with ST7735 controller
 - Data is stored on a Windbond W25Q128FV SPI flash chip
 - Loads TFT configuration + number of image + number of bytes per image from flash data
@@ -12,7 +13,7 @@ Software to update and run a small electronic-"picture frame"-esque "constructio
 ## PIC Firmware 
 * The PIC16F88 assembly files of the actual firmware
 * Includes a few quick macro for 16bit operations and wrapped ASM branching
-* Both methods to send and receive data are shown with conventionnal loop structure and also the faster inline version 
+* Both methods to send and receive data are shown with conventionnal loop structure and also the faster unwrapped version 
 
 ## TFT Data Manager
 A simple image library style editor to load and adjust image file to fit the TFT screen and then convert the resulting "library" in a pure flash data file readable by the TFT screen.
@@ -33,9 +34,9 @@ Software interface to use the FTDI UM245R as a software SPI interface to transfe
 # The Project
 
 ## Physical Components
-The "block" used is custom machined on a taig mill using only DRO for reference and a custom cutter for the studs.
+The "block" is custom machined on a Taig lathe using only DRO for reference and a custom cutter for the studs.
 
-Top and Bottom paltes were actually test parts that got fused togheter with a casting of polyurethane plastic then hollowed-out by the same milling machine.
+Top and Bottom plates were actually test parts that got fused togheter with a casting of polyurethane plastic then hollowed-out by the same milling setup.
 
 Backplate is the actual SMT PCB
 
@@ -49,20 +50,18 @@ Backplate is the actual SMT PCB
 
 # Media
 ## Pictures
-* [Stud Cutter] (https://goo.gl/photos/sFL4QzC7JSop67yAA)
-* [Top and Bottom interface] (https://goo.gl/photos/NtaNb8cWNhfWij3A8)
-* [Block casting and facing] (https://goo.gl/photos/r5YWqpATqyD6E1XXA)
-* [Hollowing block] (https://goo.gl/photos/raSdww7q1CnPxB1X9)
-* [PCB Etching, Soldering and testing] (https://goo.gl/photos/RH1CvNqwf7iHouoT8)
-* [Fitting and final assembly] (https://goo.gl/photos/gndkSUFCv5jipQ3x5)
+* [Stud Cutter](media/LegoTV_cutter.jpg)
+* [Top and Bottom interface](media/LegoTV_blocInterface.jpg)
+* [Fit and final assembly](media/LegoTV_sando.jpg)
+* [Final product](media/LegoTV_final.jpg)
 
 ## Schematics
-* [Block Schematics] (http://m4nusky.com/projects/legotv/legotv_layout.jpg)
-* [PCBs of controller and TFT backplate] (http://m4nusky.com/projects/legotv/legotv_pcbs.jpg)
-* Schematics and PCBs are available as PDF in the repository's /schematics/ folder
+* [Block Schematics](media/LegoTV_layout.jpg)
+* [PCBs of controller and TFT backplate](media/LegoTV_PCBs.jpg)
+* Schematics and PCBs are available as PDF in the repository's [/Schematics/](Schematics/) folder
 
 ## Videos
-* [Firmware test with circuit on breadboard] (https://youtu.be/bwzhosgC7QQ)
-* [Post-soldering PCB test] (https://youtu.be/HSaehFAtPZ8)
-* [PCB with screen inside the block] (https://youtu.be/ZGKneOr_af8)
-* [Final block with buttons] (https://youtu.be/T-MZ-Wergmg)
+* [Firmware test with circuit on breadboard](https://youtu.be/bwzhosgC7QQ)
+* [Post-soldering PCB test](https://youtu.be/HSaehFAtPZ8)
+* [PCB with screen inside the block](https://youtu.be/ZGKneOr_af8)
+* [Final block with buttons](https://youtu.be/T-MZ-Wergmg)
