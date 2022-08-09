@@ -1,5 +1,6 @@
 # LegoTV
 ![Lego TV!](media/LegoTV.jpg)
+
 Software to update and run a small electronic-"picture frame"-esque Lego "construction block" compatible TV
 
 ## Project's basic features
@@ -56,7 +57,7 @@ Backplate is the actual SMT PCB
 * [Final product](media/LegoTV_final.jpg)
 
 ## Schematics
-* [Block Schematics](media/LegoTV_layout.jpg)
+* [Block Schematics](media/LegoTV_Layout.jpg)
 * [PCBs of controller and TFT backplate](media/LegoTV_PCBs.jpg)
 * Schematics and PCBs are available as PDF in the repository's [/Schematics/](Schematics/) folder
 
